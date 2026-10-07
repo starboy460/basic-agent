@@ -1,0 +1,14 @@
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.log
+chat_history.json
+uploads/
+generated/
+.clawhub/
+.pytest_cache/
+.DS_Store

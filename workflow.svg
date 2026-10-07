@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="650" viewBox="0 0 1200 650">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#06090d"/>
+      <stop offset="100%" stop-color="#0f172a"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#000000" flood-opacity="0.45"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#44e7ff"/>
+    </marker>
+    <style>
+      .node-title { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 700; font-size: 15px; fill: #ffffff; }
+      .node-sub { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 400; font-size: 12px; fill: #94a3b8; }
+      .label { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 600; font-size: 12px; fill: #38bdf8; }
+      .header-title { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 800; font-size: 24px; fill: #44e7ff; letter-spacing: 2px; }
+      .header-sub { font-family: 'Segoe UI', Arial, sans-serif; font-weight: 500; font-size: 14px; fill: #94a3b8; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="650" fill="url(#bg)"/>
+  
+  <!-- Header -->
+  <text x="60" y="55" class="header-title">NEO TELUGU VOICE AGENT - WORKFLOW</text>
+  <text x="60" y="80" class="header-sub">End-to-End n8n-Style Execution Pipeline</text>
+
+  <!-- Connecting Lines -->
+  <!-- Trigger to STT -->
+  <path d="M 180 220 L 260 220" stroke="#44e7ff" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <!-- STT to Router -->
+  <path d="M 440 220 L 520 220" stroke="#44e7ff" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <!-- Router to Memory/Skill -->
+  <path d="M 610 260 L 610 330 L 350 330 L 350 380" stroke="#44e7ff" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <!-- Router to LLM Core -->
+  <path d="M 700 220 L 780 220" stroke="#44e7ff" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <!-- LLM to Tools / Normalizer -->
+  <path d="M 960 220 L 1040 220" stroke="#44e7ff" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <!-- Normalizer to TTS -->
+  <path d="M 1130 260 L 1130 420 L 900 420" stroke="#44e7ff" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+  <!-- TTS to Output -->
+  <path d="M 720 420 L 480 420" stroke="#44e7ff" stroke-width="3" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- NODES -->
+
+  <!-- 1. Trigger / Mic Input -->
+  <g transform="translate(60, 170)" filter="url(#shadow)">
+    <rect width="120" height="100" rx="16" fill="#1e293b" stroke="#ff6d5a" stroke-width="2"/>
+    <circle cx="60" cy="35" r="18" fill="rgba(255,109,90,0.15)"/>
+    <path d="M60 25 v20 M50 32 h20" stroke="#ff6d5a" stroke-width="2.5" stroke-linecap="round"/>
+    <text x="60" y="72" class="node-title" text-anchor="middle">Mic / Input</text>
+    <text x="60" y="88" class="node-sub" text-anchor="middle">User Voice</text>
+  </g>
+
+  <!-- 2. Whisper STT -->
+  <g transform="translate(260, 170)" filter="url(#shadow)">
+    <rect width="180" height="100" rx="16" fill="#1e293b" stroke="#0284c7" stroke-width="2"/>
+    <circle cx="35" cy="50" r="16" fill="rgba(2,132,199,0.2)"/>
+    <text x="35" y="55" class="node-title" text-anchor="middle">🎙️</text>
+    <text x="65" y="45" class="node-title">Whisper STT</text>
+    <text x="65" y="65" class="node-sub">Telugu (te-IN)</text>
+  </g>
+
+  <!-- 3. Message Router -->
+  <g transform="translate(520, 170)" filter="url(#shadow)">
+    <rect width="180" height="100" rx="16" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+    <text x="90" y="45" class="node-title" text-anchor="middle">Message Router</text>
+    <text x="90" y="68" class="node-sub" text-anchor="middle">API /api/chat</text>
+  </g>
+
+  <!-- 4. Memory & Skill -->
+  <g transform="translate(260, 380)" filter="url(#shadow)">
+    <rect width="180" height="100" rx="16" fill="#1e293b" stroke="#8b5cf6" stroke-width="2"/>
+    <text x="90" y="45" class="node-title" text-anchor="middle">Memory &amp; Skill</text>
+    <text x="90" y="68" class="node-sub" text-anchor="middle">telugu.md &amp; History</text>
+  </g>
+
+  <!-- 5. LLM Engine -->
+  <g transform="translate(780, 170)" filter="url(#shadow)">
+    <rect width="180" height="100" rx="16" fill="#1e293b" stroke="#00dc82" stroke-width="2"/>
+    <text x="90" y="45" class="node-title" text-anchor="middle">AI LLM Core</text>
+    <text x="90" y="68" class="node-sub" text-anchor="middle">OpenAI / Ollama</text>
+  </g>
+
+  <!-- 6. Text Normalizer -->
+  <g transform="translate(1040, 170)" filter="url(#shadow)">
+    <rect width="180" height="100" rx="16" fill="#1e293b" stroke="#06b6d4" stroke-width="2"/>
+    <text x="90" y="45" class="node-title" text-anchor="middle">Text Normalizer</text>
+    <text x="90" y="68" class="node-sub" text-anchor="middle">Strip Markdown / ₹</text>
+  </g>
+
+  <!-- 7. TTS Speech Engine -->
+  <g transform="translate(720, 370)" filter="url(#shadow)">
+    <rect width="180" height="100" rx="16" fill="#1e293b" stroke="#f59e0b" stroke-width="2"/>
+    <text x="90" y="45" class="node-title" text-anchor="middle">Web Speech TTS</text>
+    <text x="90" y="68" class="node-sub" text-anchor="middle">te-IN Voice Output</text>
+  </g>
+
+  <!-- 8. Audio Output & Barge-In -->
+  <g transform="translate(300, 370)" filter="url(#shadow)">
+    <!-- Placeholder or final output node -->
+  </g>
+
+  <g transform="translate(300, 370)" filter="url(#shadow)">
+    <!-- handled above -->
+  </g>
+
+  <!-- Output UI Node -->
+  <g transform="translate(300, 370)" filter="url(#shadow)">
+    <rect width="180" height="100" rx="16" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="90" y="45" class="node-title" text-anchor="middle">Chat UI &amp; Audio</text>
+    <text x="90" y="68" class="node-sub" text-anchor="middle">Barge-in / Playback</text>
+  </g>
+
+  <!-- Footer Info -->
+  <text x="60" y="590" class="node-sub">Artifact generated: workflow.svg | Fully interactive n8n-style node pipeline for Neo Telugu Voice Agent</text>
+</svg>
